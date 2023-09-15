@@ -1,58 +1,35 @@
-- 👋 Hi, I’m @Dr1xLee
-- 👀 I’m interested in ...
-- 🌱 I’m currently learning ...
-- 💞️ I’m looking to collaborate on ...
-- 📫 How to reach me ...
+import turtle
+import random
 
-<!---
-Dr1xLee/Dr1xLee is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
-# Функция для сложения
-def add(x, y):
-    return x + y
+# Создаем экран и черепаху
+screen = turtle.Screen()
+t = turtle.Turtle()
 
-# Функция для вычитания
-def subtract(x, y):
-    return x - y
+# Устанавливаем скорость рисования черепахи
+t.speed(0)
 
-# Функция для умножения
-def multiply(x, y):
-    return x * y
+# Устанавливаем цвет фона
+screen.bgcolor("black")
 
-# Функция для деления
-def divide(x, y):
-    if y == 0:
-        return "Деление на ноль невозможно"
-    return x / y
+# Устанавливаем палитру цветов
+colors = ["red", "orange", "yellow", "green", "blue", "purple", "white"]
 
-# Основной код программы
-while True:
-    print("Выберите операцию:")
-    print("1. Сложение")
-    print("2. Вычитание")
-    print("3. Умножение")
-    print("4. Деление")
-    print("5. Выход")
+# Функция для рисования круга
+def draw_circle(size):
+    t.color(random.choice(colors))
+    t.begin_fill()
+    t.circle(size)
+    t.end_fill()
 
-    choice = input("Введите номер операции (1/2/3/4/5): ")
+# Настройки черепахи
+t.penup()
+t.goto(0, -200)
+t.pendown()
 
-    if choice == '5':
-        print("Программа завершена.")
-        break
+# Рисуем абстрактный рисунок
+for _ in range(72):
+    draw_circle(100)
+    t.right(5)
 
-    if choice not in ('1', '2', '3', '4'):
-        print("Некорректный ввод. Попробуйте еще раз.")
-        continue
-
-    num1 = float(input("Введите первое число: "))
-    num2 = float(input("Введите второе число: "))
-
-    if choice == '1':
-        print("Результат:", add(num1, num2))
-    elif choice == '2':
-        print("Результат:", subtract(num1, num2))
-    elif choice == '3':
-        print("Результат:", multiply(num1, num2))
-    elif choice == '4':
-        print("Результат:", divide(num1, num2))
+# Завершаем работу по клику на экран
+screen.exitonclick()
